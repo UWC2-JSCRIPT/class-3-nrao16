@@ -5,12 +5,22 @@
 
 const logReceipt = (...menuItems) => 
 { 
-  let totalPrice = 0;
+  const TAX_PERCENT = .02;
+  const TIP_PERCENT = .2;
+  let subTotal = 0;
+
   menuItems.forEach(item => { 
-    totalPrice += item.price
+    subTotal += item.price
     console.log(`${item.descr} - $${item.price}`)
   });
-  console.log(`Total - $${totalPrice.toFixed(2)}`)
+
+  let tax = TAX_PERCENT * subTotal;
+  let tip = TIP_PERCENT * subTotal;
+  let totalPrice = subTotal + tax + tip; 
+  console.log(`Subtotal - $${subTotal.toFixed(2)}`);
+  console.log(`2% Tax - $${tax.toFixed(2)}`);
+  console.log(`20% Tip - $${tip.toFixed(2)}`)
+  console.log(`Total - $${totalPrice.toFixed(2)}`);
 };
 
 // Check
