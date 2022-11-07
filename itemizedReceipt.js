@@ -14,9 +14,9 @@ const logReceipt = (...menuItems) =>
     console.log(`${item.descr} - $${item.price}`)
   });
 
-  let tax = TAX_PERCENT * subTotal;
-  let tip = TIP_PERCENT * subTotal;
-  let totalPrice = subTotal + tax + tip; 
+  const tax = TAX_PERCENT * subTotal;
+  const tip = TIP_PERCENT * subTotal;
+  const totalPrice = subTotal + tax + tip; 
   console.log(`Subtotal - $${subTotal.toFixed(2)}`);
   console.log(`2% Tax - $${tax.toFixed(2)}`);
   console.log(`20% Tip - $${tip.toFixed(2)}`)

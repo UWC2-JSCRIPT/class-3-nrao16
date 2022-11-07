@@ -22,7 +22,7 @@ const attack = (
   variableDamage
   ) => 
 {
-  let totalDamage = baseDamage + Math.floor(Math.random() * variableDamage + 1);
+  const totalDamage = baseDamage + Math.floor(Math.random() * variableDamage + 1);
   defendingPlayer.health -= totalDamage;
 
   return `${attackingPlayer.name} hits ${defendingPlayer.name} for total damage ${totalDamage}`
