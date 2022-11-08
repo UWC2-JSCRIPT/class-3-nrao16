@@ -1,4 +1,6 @@
-
+// IIFI format
+(() => {
+  
 const RESULT_VALUES = {
   w: 3,
   d: 1,
@@ -19,7 +21,11 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // Create getTotalPoints function which accepts a string of results
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
-
+const getTotalPoints = (teamResults) => {
+  let totalPoints = 0;
+  teamResults.split('').forEach(result => totalPoints += getPointsFromResult(result));
+  return totalPoints;
+};
 
 
 // Check getTotalPoints
@@ -30,6 +36,15 @@ console.log(getTotalPoints('wwdl')); // should equal 7
 // i.e. {name: 'Sounders', results: 'wwlwdd'}
 // Logs each entry to the console as "Team name: points"
 
+// Version using arguments
+const orderTeams = function() {
+  Array.from(arguments)?.forEach(team => console.log(`${team.name}: ${getTotalPoints(team.results)}`));
+}
+
+// Version using rest parameters
+// const orderTeams = (...teams) => {
+//   teams?.forEach((team) => console.log(`${team.name}: ${getTotalPoints(team.results)}`));
+// };
 
 
 // Check orderTeams
@@ -40,3 +55,5 @@ orderTeams(
 // should log the following to the console:
 // Sounders: 7
 // Galaxy: 4
+
+})();

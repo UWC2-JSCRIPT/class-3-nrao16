@@ -1,16 +1,32 @@
 // 1. Create attack function below.  This will take the following parameters:
 // attackingPlayer, defendingPlayer, baseDamage, variableDamage
 
+// const attack = function(attackingPlayer, defendingPlayer, baseDamage, variableDamage) {
+//   let totalDamage = baseDamage + Math.floor(Math.random() * variableDamage + 1);
+//   defendingPlayer.health -= totalDamage;
 
+//   return `${attackingPlayer.name} hits ${defendingPlayer.name} for total damage ${totalDamage}`
+// }
 
 // 2. Create player1 and player2 objects below
 // Each should have a name property of your choosing, and health property equal to 10
-
-
+const player1 = {name: 'Mario', health : 10};
+const player2 = {name: 'Luigi', health : 10};
 
 // 3. Refactor attack function to an arrow function.  Comment out function above.
 
+const attack = (
+  attackingPlayer, 
+  defendingPlayer, 
+  baseDamage, 
+  variableDamage
+  ) => 
+{
+  const totalDamage = baseDamage + Math.floor(Math.random() * variableDamage + 1);
+  defendingPlayer.health -= totalDamage;
 
+  return `${attackingPlayer.name} hits ${defendingPlayer.name} for total damage ${totalDamage}`
+};
 
 // DO NOT MODIFY THE CODE BELOW THIS LINE
 // Set attacker and defender.  Reverse roles each iteration
